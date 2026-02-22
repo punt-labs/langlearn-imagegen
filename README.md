@@ -2,6 +2,16 @@
 
 Image generation backends for language learning assets.
 
+## Status (2026-02-21)
+
+- Providers implemented: OpenAI image API and Pexels search.
+- Optional evaluator can reject results, but no built-in evaluators ship yet.
+- Two-stage generation and cultural-context query rewriting are not implemented yet.
+
+## Roadmap
+
+See ROADMAP.md.
+
 ## Install
 
 ```bash
@@ -15,6 +25,13 @@ langlearn-imagegen --help
 langlearn-imagegen --json version
 langlearn-imagegen doctor
 langlearn-imagegen serve
+```
+
+Example:
+
+```bash
+langlearn-imagegen generate --prompt "a small bakery" --provider openai
+langlearn-imagegen generate --prompt "Paris cafe" --provider pexels --pexels-size medium
 ```
 
 ## MCP

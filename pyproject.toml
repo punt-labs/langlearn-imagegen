@@ -3,7 +3,7 @@ name = "punt-langlearn-imagegen"
 version = "0.1.0"
 description = "Image generation backends for language learning assets."
 readme = "README.md"
-authors = [{ name = "JF", email = "jmf@pobox.com" }]
+authors = [{ name = "Punt Labs" }]
 requires-python = ">=3.13"
 license = "MIT"
 dependencies = [

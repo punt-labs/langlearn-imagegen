@@ -98,6 +98,10 @@ warn_unreachable = true
 module = "tests.*"
 disallow_untyped_defs = false
 
+[[tool.mypy.overrides]]
+module = ["typer.*", "mcp.*"]
+ignore_missing_imports = true
+
 [tool.pyright]
 pythonVersion = "3.13"
 typeCheckingMode = "strict"
@@ -123,7 +127,3 @@ exclude_lines = [
 ]
 show_missing = true
 precision = 2
-
-[[tool.mypy.overrides]]
-module = ["typer.*", "mcp.*"]
-ignore_missing_imports = true

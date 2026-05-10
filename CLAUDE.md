@@ -64,7 +64,7 @@ This project uses **beads** (`bd`) for issue tracking. If an issue discovered he
 
 Identity: `agent: claude` per `.punt-labs/ethos.yaml`. Sub-agent calls match ethos identity handles.
 
-This repo wraps OpenAI Image and Pexels providers behind the `langlearn-types` `ImageProvider` protocol. Provider implementations carry API keys and sit on a network boundary — security review is part of every change. Worker and evaluator must be distinct handles with no shared role. Claude is the leader, never the evaluator.
+This repo wraps OpenAI Image and Pexels providers behind the `langlearn-types` `ImageProvider` protocol. Provider implementations carry API keys and sit on a network boundary — security review is part of every change. Within each row, the worker and evaluator must be distinct handles. Claude is the leader, never the evaluator.
 
 | Task type | Worker | Evaluator |
 |-----------|--------|-----------|
@@ -75,7 +75,7 @@ This repo wraps OpenAI Image and Pexels providers behind the `langlearn-types` `
 | Pexels query construction (cultural context) | `rmh` | `claudia` (Massimo) — editorial sensibility |
 | CLI surface | `mdm` (McIlroy) | `rop` (Pike) |
 | Two-stage GPT image flow | `rmh` | `kpz` (Karpathy) — model behavior |
-| Cost / quota / rate limiting | `rmh` | `mdm` — pipeline composition |
+| Cost / quota / rate limiting | `rmh` | `rop` (Pike) — pipeline composition |
 | Infra / CI / release | `adb` (Lovelace) | `kth` (Hightower) |
 
 Use the `standard` pipeline for features, `coverage` for test gaps, `coe` for failure investigation across providers.

@@ -60,6 +60,26 @@ Do **not** merge immediately after creating a PR. Expect **2–6 review cycles**
 
 This project uses **beads** (`bd`) for issue tracking. If an issue discovered here affects multiple repos or requires a standards change, escalate to a [punt-kit bead](https://github.com/punt-labs/punt-kit) instead (see [bead placement scheme](../CLAUDE.md#where-to-create-a-bead)).
 
+## Ethos & Delegation
+
+Identity: `agent: claude` per `.punt-labs/ethos.yaml`. Sub-agent calls match ethos identity handles.
+
+This repo wraps OpenAI Image and Pexels providers behind the `langlearn-types` `ImageProvider` protocol. Provider implementations carry API keys and sit on a network boundary — security review is part of every change. Worker and evaluator must be distinct handles with no shared role. Claude is the leader, never the evaluator.
+
+| Task type | Worker | Evaluator |
+|-----------|--------|-----------|
+| Python provider implementation | `rmh` (Hettinger) | `gvr` (van Rossum) |
+| Provider protocol / contract | `gvr` | `rmh` |
+| API key / credential handling | `rmh` | `djb` (Bernstein) — implementation correctness |
+| Threat model — network calls, prompt injection into image gen | `claude` (leader) | `bcs` (Schneier) |
+| Pexels query construction (cultural context) | `rmh` | `claudia` (Massimo) — editorial sensibility |
+| CLI surface | `mdm` (McIlroy) | `rop` (Pike) |
+| Two-stage GPT image flow | `rmh` | `kpz` (Karpathy) — model behavior |
+| Cost / quota / rate limiting | `rmh` | `mdm` — pipeline composition |
+| Infra / CI / release | `adb` (Lovelace) | `kth` (Hightower) |
+
+Use the `standard` pipeline for features, `coverage` for test gaps, `coe` for failure investigation across providers.
+
 ## Standards References
 
 - [Python](https://github.com/punt-labs/punt-kit/blob/main/standards/python.md)

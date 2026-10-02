@@ -1,13 +1,12 @@
 from __future__ import annotations
 
 from langlearn_types import ImageProviderId, ImageRequest
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 
 from langlearn_imagegen import __version__, generate
 from langlearn_imagegen.providers import PROVIDER_REGISTRY
 
-mcp = FastMCP("langlearn-imagegen")
-mcp._mcp_server.version = __version__  # pyright: ignore[reportPrivateUsage]
+mcp = MCPServer("langlearn-imagegen", version=__version__)
 
 
 @mcp.tool()

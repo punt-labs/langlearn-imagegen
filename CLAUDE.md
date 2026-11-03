@@ -83,3 +83,4 @@ Use the `standard` pipeline for features, `coverage` for test gaps, `coe` for fa
 - [Workflow](https://github.com/punt-labs/punt-kit/blob/main/standards/workflow.md)
 - [CLI](https://github.com/punt-labs/punt-kit/blob/main/standards/cli.md)
 - [Shell](https://github.com/punt-labs/punt-kit/blob/main/standards/shell.md)
+@.punt-labs/ethos/CLAUDE.md
